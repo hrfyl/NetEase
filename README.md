@@ -6,6 +6,8 @@
 <br>
 注: 运行前请自己安装mplayer.<br>
 windows下mplayer下载: http://www.mplayerhq.hu/design7/dload.html<br>
+下载解压后重命名文件夹为mplayer并将文件夹与NetEase.exe同目录...<br>
+<br>
 linux安装mplayer(openSUSE): #zypper in mplayer<br>
 <br><br>
 目前实现的功能有: <br>
