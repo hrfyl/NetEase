@@ -72,11 +72,22 @@ QListWidget::item {
 	font-size:16px;
 }
 
+QListWidget {
+	border:0px;
+}
+QListWidget::item:selected {
+	color:white; 
+	background:rgb(34, 175, 75); 
+}
+
 QTableWidget {
 	background-color:transparent;
 	border:0px;
 }
-
+QTableView::item:selected { 
+	color:white; 
+	background:rgb(34, 175, 75); 
+} 
 QHeaderView::section {
 	background-color: transparent;
 	color: black;
