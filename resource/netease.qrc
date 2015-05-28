@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/func_btn">
+        <file alias="front_btn">buttons/front_btn.png</file>
+        <file alias="music">buttons/music.png</file>
+        <file alias="next_btn">buttons/next_btn.png</file>
+        <file alias="play_btn">buttons/play_btn.png</file>
+        <file alias="stop_btn">buttons/stop_btn.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file alias="default">qss/default.qss</file>
+    </qresource>
+    <qresource prefix="/title">
+        <file alias="logo">title_images/format.png</file>
+        <file alias="menu_btn">title_images/Menu.png</file>
+        <file alias="skin_btn">title_images/Skin.png</file>
+        <file alias="close_btn">title_images/sys_button_close.png</file>
+        <file alias="mini_btn">title_images/sys_button_min.png</file>
+        <file alias="update_btn">title_images/update_btn.png</file>
+    </qresource>
+    <qresource prefix="/default">
+        <file alias="icon">main_images/format.ico</file>
+        <file alias="user_head">main_images/login.png</file>
+        <file alias="guangyun_green">main_images/guangyun_green.png</file>
+        <file alias="guangyun_orange">main_images/guangyun_orange.png</file>
+        <file alias="guangyun_yellow">main_images/guangyun_yellow.png</file>
+        <file alias="wenli">main_images/wenli.png</file>
+    </qresource>
+</RCC>

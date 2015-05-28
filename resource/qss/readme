@@ -1,0 +1,26 @@
+
+QWidget#BackGround 
+	qproperty-backPixmap 属性为:"default" 时使用背景图片
+	qproperty-backPixmap 属性为:颜色值时 背景使用此颜色作为背景
+
+	
+	
+QWidget#Pasue {
+	qproperty-mIcon:":/func_btn/stop_btn";
+	qproperty-enterColor:"Qt::lightgray";
+}
+
+QWidget#Play {
+	qproperty-mIcon:":/func_btn/play_btn";
+	qproperty-enterColor:"Qt::lightgray";
+}
+
+QWidget#PlayFront {
+	qproperty-mIcon:":/func_btn/front_btn";
+	qproperty-enterColor:"Qt::lightgray";
+}
+
+QWidget#PlayNext {
+	qproperty-mIcon:":/func_btn/next_btn";
+	qproperty-enterColor:"Qt::lightgray";
+}
