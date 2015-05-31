@@ -2,7 +2,7 @@
 		> File Name: mainwindow.cpp
 		# Author: 		WIND
 		# mail: 		fengleyl@163.com
-		> Created Time: 2015年05月23日 星期四 11时36分08秒
+		> Created Time: 2015年05月23日 星期六 11时36分08秒
 ########################################################################*/
 
 #include "mainwindow.h"

@@ -77,7 +77,7 @@ QListWidget {
 }
 QListWidget::item:selected {
 	color:white; 
-	background:rgb(34, 175, 75); 
+	background:"#00A489"; 
 }
 
 QTableWidget {
@@ -86,14 +86,13 @@ QTableWidget {
 }
 QTableView::item:selected { 
 	color:white; 
-	background:rgb(34, 175, 75); 
+	background:"#00A489"; 
 } 
 QHeaderView::section {
 	background-color: transparent;
 	color: black;
 	border: 0px;
 }
-
 
 
 QLabel#MusicTitle {

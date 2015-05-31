@@ -2,7 +2,7 @@
 		> File Name: main.cpp
 		# Author: 		WIND
 		# mail: 		fengleyl@163.com
-		> Created Time: 2015年05月23日 星期四 11时35分51秒
+		> Created Time: 2015年05月23日 星期六 11时35分51秒
 ########################################################################*/
 
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	if (!connectDatabase())
 		return 1;
-
+	
 	QFile file(":/qss/default");
 	file.open(QFile::ReadOnly);
 	qApp->setStyleSheet(file.readAll());
