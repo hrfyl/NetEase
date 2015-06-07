@@ -123,6 +123,7 @@ void LyricWidget::clearText()
 	m_currentCount = 0;
 	m_lyricLabel->clear();
 	m_nextLyricLabel->clear();
+	update();
 }
 
 qreal LyricWidget::opacity() const
