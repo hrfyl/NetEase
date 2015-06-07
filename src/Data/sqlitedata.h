@@ -7,6 +7,8 @@ class QSqlQuery;
 class QString;
 class QStringList;
 
+bool connectDatabase(QString &userName);		//		连接Sqlite数据库
+
 class SqliteData
 {
 public:

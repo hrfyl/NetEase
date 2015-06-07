@@ -30,7 +30,7 @@ public:
 	QString currentMusicName();
 
 	//		用户信息设置...
-	void setUserInfo(const QString &head, const QString &name);
+	void setUserInfo(const QString &name, QString head=":/default/user_head");
 
 signals:
 	void logIn();

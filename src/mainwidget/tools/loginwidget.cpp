@@ -67,4 +67,5 @@ void LogInWidget::on_logIn_clicked()
 		return;
 	}
 	emit logInClicked(name, passwd);
+	this->setVisible(false);
 }

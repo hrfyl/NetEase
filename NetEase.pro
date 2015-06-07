@@ -31,7 +31,11 @@ SOURCES += \
     src/Data/sqlitedata.cpp \
     src/mainwidget/networkwidget.cpp \
     src/mainwidget/tools/loginwidget.cpp \
-    src/toolwidget/searchwidget.cpp
+    src/toolwidget/searchwidget.cpp \
+    src/function/network.cpp \
+    src/function/media.cpp \
+    src/toolwidget/lyricwidget.cpp \
+    src/Data/lyric.cpp
 
 HEADERS  += \
     src/mainwidget/mainwindow.h \
@@ -52,7 +56,12 @@ HEADERS  += \
     src/Data/sqlitedata.h \
     src/mainwidget/networkwidget.h \
     src/mainwidget/tools/loginwidget.h \
-    src/toolwidget/searchwidget.h
+    src/toolwidget/searchwidget.h \
+    src/function/network.h \
+    src/function/media.h \
+    src/datatypedef/urlinfo.h \
+    src/toolwidget/lyricwidget.h \
+    src/Data/lyric.h
 
 RESOURCES += \
     resource/netease.qrc
@@ -75,7 +84,8 @@ FILES_COPY_SRC += resource/sql/music.db	\
 !equals(_PRO_FILE_PWD_, OUT_PWD) {
 	for(f, FILES_COPY_SRC){
 		orig_file = $$_PRO_FILE_PWD_/$$f
-		dist_file = $$OUT_PWD/$$f
+		#dist_file = $$OUT_PWD/$$f
+		dist_file = $$~/.cache/NetEase/$$f
 		dist = $$dirname(dist_file)
 		win32:dist = $$replace(dist, /, \\)
 		win32:orig_file = $$replace(orig_file, /, \\)

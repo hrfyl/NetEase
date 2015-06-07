@@ -179,7 +179,7 @@ QString MainTopWidget::currentMusicName()
 	return name;
 }
 
-void MainTopWidget::setUserInfo(const QString &head, const QString &name)
+void MainTopWidget::setUserInfo(const QString &name, QString head)
 {
 	m_userWidget->setUserInfo(head, name);
 }

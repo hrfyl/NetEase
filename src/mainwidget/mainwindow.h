@@ -20,8 +20,6 @@ class QMenu;
 class NetWorkWidget;
 class SearchWidget;
 
-bool connectDatabase();		//		连接Sqlite数据库
-
 class MainWindow : public BasedWidget
 {
 	Q_OBJECT
@@ -101,8 +99,6 @@ private:
 
 	//		搜索...
 	SearchWidget *m_searchWidget;
-	//		退出时提示是否保存用户信息(自动登录.)...
-	int m_saveUserInfo;			//	值为0时提示否则不提示..
 };
 
 #endif // MAINWINDOW_H

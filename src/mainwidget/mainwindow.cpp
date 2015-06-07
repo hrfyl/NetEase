@@ -9,37 +9,19 @@
 #include "tools/titlewidget.h"
 #include "mainbottomwidget.h"
 #include "maintopwidget.h"
+#include "../toolwidget/addmusiclist.h"
+#include "../toolwidget/searchwidget.h"
+#include "../Data/sqlitedata.h"
+#include "networkwidget.h"
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 #include <QMediaMetaData>
 #include <QIcon>
-#include "../toolwidget/addmusiclist.h"
-#include "../toolwidget/searchwidget.h"
-#include "networkwidget.h"
-#include <QSqlDatabase>
 #include <QMessageBox>
-#include <QSqlError>
 #include <QFileInfo>
-#include "../Data/sqlitedata.h"
 #include <QFileDialog>
 #include <QMenu>
-
-bool connectDatabase()
-{
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-	db.setDatabaseName("./resource/sql/music.db");
-	//db.setDatabaseName("/home/wind/文档/qt/NetEase/bin/resource/sql/music.db");
-
-	if (!db.open())
-	{
-		QMessageBox::critical(0, QObject::tr("连接数据出错"), db.lastError().text(), QMessageBox::Ok);
-		return false;
-	}
-	SqliteData sqlite;
-	if (!sqlite.initTables())
-		return false;
-	return true;
-}
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
 	: BasedWidget(parent)
@@ -125,7 +107,8 @@ void MainWindow::initConnect()
 	connect(m_mainTitle, SIGNAL(rmFiles()), this, SLOT(rmMusicFromData()));
 	connect(m_mainTitle, SIGNAL(rmLists()), this, SLOT(rmListFromData()));
 
-	connect(m_searchWidget, SIGNAL(search(QString)), m_netWorkWidget, SLOT(search(QString)));
+	connect(m_searchWidget, SIGNAL(search(QString)), m_netWorkWidget, SIGNAL(search(QString)));
+	connect(m_searchWidget, SIGNAL(search(QString)), m_searchWidget, SLOT(close()));
 
 	connect(m_mainBottomWidget, SIGNAL(setVoice(int)), m_player, SLOT(setVolume(int)));
 	connect(m_mainBottomWidget, SIGNAL(setPostion(qint64)), m_player, SLOT(setPosition(qint64)));
@@ -151,25 +134,23 @@ void MainWindow::closeEvent(QCloseEvent *)
 	m_netWorkWidget->closeWidget();
 
 	QStringList list = m_netWorkWidget->saveUserInfo();
-	if (list[2] != "0")
-		m_saveUserInfo = 1;
-	else
-	{
-		m_saveUserInfo = 0;
+	if (list[2] == "0")
 		return;
-	}
 
-	if (m_saveUserInfo == 0)
-	{
-		int button = QMessageBox::warning(this, "保存用户信息..", "即将退出网易云音乐,你是否要保存用户信息?", QMessageBox::Ok | QMessageBox::Cancel);
-		if (button != QMessageBox::Ok)
-			return;
-	}
-	list.append(QString::number(m_saveUserInfo));
+	list.append(QString::number(1));
 	SqliteData sqlite;
 	sqlite.updateUserInfo(list);
 }
+//		自动获取歌单...
+void MainWindow::getNetUserInfo()
+{
+	SqliteData sqlite;
+	QStringList list = sqlite.netUserInfo();
+	if ((list[2] == ""))
+		return;
 
+	m_netWorkWidget->setAutoLogInInfo(list);
+}
 
 void MainWindow::initMenu()
 {
@@ -200,13 +181,11 @@ void MainWindow::trayIconClicked(QSystemTrayIcon::ActivationReason reason)
 	}
 }
 
-
-
 void MainWindow::switchNet()
 {
 	if (m_netWorkWidget->isVisible())
 	{
-		m_netWorkWidget->setVisible(false);
+		m_netWorkWidget->setWidgetVisiable(false);
 		m_mainTopWidget->setVisible(true);
 		m_mainBottomWidget->setVisible(true);
 		m_mainTitle->netWorkModel(false);
@@ -215,10 +194,10 @@ void MainWindow::switchNet()
 	{
 		m_mainTopWidget->setVisible(false);
 		m_mainBottomWidget->setVisible(false);
-		m_netWorkWidget->setVisible(true);
+		m_netWorkWidget->setWidgetVisiable(true);
 		m_mainTitle->netWorkModel(true);
 	}
-	m_netWorkWidget->quitPlay();
+	m_netWorkWidget->pause();
 	if (m_player->state() == QMediaPlayer::PlayingState)
 		m_player->pause();
 }
@@ -230,22 +209,19 @@ void MainWindow::showSearchWidget()
 
 
 
-
+//		本地音乐循环..
 void MainWindow::loopOnePlay()
 {
 	m_playList->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
 }
-
 void MainWindow::loopPlay()
 {
 	m_playList->setPlaybackMode(QMediaPlaylist::Loop);
 }
-
 void MainWindow::listPlay()
 {
 	m_playList->setPlaybackMode(QMediaPlaylist::Sequential);
 }
-
 void MainWindow::randomPlay()
 {
 	m_playList->setPlaybackMode(QMediaPlaylist::Random);
@@ -255,7 +231,6 @@ void MainWindow::showUpdate()
 {
 
 }
-
 void MainWindow::showSkin()
 {
 
@@ -388,19 +363,6 @@ void MainWindow::initList()
 	}
 	m_mainTopWidget->setcurrentList(0);
 	m_mainTopWidget->setCurrentFile(0);
-}
-
-void MainWindow::getNetUserInfo()
-{
-	SqliteData sqlite;
-	QStringList list = sqlite.netUserInfo();
-	if ((list[2] == ""))
-	{
-		m_saveUserInfo = 0;
-		return;
-	}
-	m_saveUserInfo = list.at(4).toInt();
-	m_netWorkWidget->setAutoLogInInfo(list);
 }
 
 void MainWindow::currentListChanged(const QString &text)

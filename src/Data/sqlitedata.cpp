@@ -5,6 +5,61 @@
 #include <QVariant>
 #include <QSqlError>
 #include <QStringList>
+#include <QProcess>
+
+bool connectDatabase(QString &userName)
+{
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+	QStringList list = QProcess::systemEnvironment();
+	QStringList::const_iterator it = list.begin();
+	QString currentUser = "";
+	while (it != list.end())
+	{
+		if ((*it).left(4) == "USER")
+		{
+			currentUser = (*it).mid(5);
+			break;
+		}
+		if ((*it).left(8) == "USERNAME")
+		{
+			currentUser = (*it).mid(9);
+			break;
+		}
+		it++;
+	}
+	userName = currentUser;
+	//	条件编译,在项目qmake中添加DEFINES+=RELEASE参数..
+/*
+ *		这是我测试用的....
+ * #ifndef RELEASE
+	db.setDatabaseName("./resource/sql/music.db");
+#endif
+#ifdef RELEASE
+	db.setDatabaseName("/home/" + currentUser + "/.cache/NetEase/resource/sql/music.db");
+#endif
+	*/
+
+	/*
+	 *	如果不希望在/home/userName/.cache/下生成文件..
+	 *  编译时:
+	 *  将#dist_file = $$OUT_PWD/$$f 这句去掉注释..
+	 *	dist_file = $$~/.cache/NetEase/$$f 这句加上注释..
+	 *	再修改db.setDatabaseName和main.cpp下的相关数据..
+	 * */
+	db.setDatabaseName("/home/" + currentUser + "/.cache/NetEase/resource/sql/music.db");
+	if (!db.open())
+	{
+		QMessageBox::critical(0, QObject::tr("连接数据出错"), db.lastError().text(), QMessageBox::Ok);
+		return false;
+	}
+	SqliteData sqlite;
+	if (!sqlite.initTables())
+		return false;
+	return true;
+}
+
+
+
 
 SqliteData::SqliteData()
 {

@@ -15,7 +15,7 @@ QMenu::item {
 QMenu::item:selected {
 	border-width:1px;
 	border-color:gray;
-	background: green;
+	background:"#00A489";
 	color:#E6FFFF;
 }
 QMenu::separator {
@@ -100,3 +100,19 @@ QLabel#MusicTitle {
 	color:gray;
 	border-width:1px;
 }
+
+LyricWidget {
+	background:"#00A489";
+}
+
+QLabel#CurrentLyric {
+	color:green;
+	font-size:22px;
+}
+QLabel#NextCurrentLyric {
+	color:blue;
+	font-size:18px;
+}
+
+
+
