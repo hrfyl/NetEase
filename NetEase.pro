@@ -84,8 +84,11 @@ FILES_COPY_SRC += resource/sql/music.db	\
 !equals(_PRO_FILE_PWD_, OUT_PWD) {
 	for(f, FILES_COPY_SRC){
 		orig_file = $$_PRO_FILE_PWD_/$$f
-		#dist_file = $$OUT_PWD/$$f
-		dist_file = $$~/.cache/NetEase/$$f
+		win32 {
+			dist_file = $$OUT_PWD/$$f
+		}else {
+			dist_file = $$~/.cache/NetEase/$$f
+		}
 		dist = $$dirname(dist_file)
 		win32:dist = $$replace(dist, /, \\)
 		win32:orig_file = $$replace(orig_file, /, \\)

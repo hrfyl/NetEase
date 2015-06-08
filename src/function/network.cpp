@@ -2,9 +2,11 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QCryptographicHash>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QVector>
 
 NetWork::NetWork(QObject *parent) :
 	QObject(parent), m_userId(0), m_userName(""), m_userPasswd("")

@@ -18,16 +18,12 @@ int main(int argc, char *argv[])
 	QString userName;
 	if (!connectDatabase(userName))
 		return 1;
-
-	//	测试...
-//#ifdef RELEASE
-//	QFile file("/home/" + userName + "/.cache/NetEase/resource/qss/default.qss");
-//#endif
-//#ifndef RELEASE
-//	QFile file(":/qss/default");
-//#endif
-
+#ifndef WIN32
 	QFile file("/home/" + userName + "/.cache/NetEase/resource/qss/default.qss");
+#endif
+#ifdef WIN32
+	QFile file("./resource/qss/default.qss");
+#endif
 	file.open(QFile::ReadOnly);
 	qApp->setStyleSheet(file.readAll());
 	file.close();

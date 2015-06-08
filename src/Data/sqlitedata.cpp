@@ -28,25 +28,13 @@ bool connectDatabase(QString &userName)
 		it++;
 	}
 	userName = currentUser;
-	//	条件编译,在项目qmake中添加DEFINES+=RELEASE参数..
-/*
- *		这是我测试用的....
- * #ifndef RELEASE
+
+#ifndef WIN32
+	db.setDatabaseName("/home/" + currentUser + "/.cache/NetEase/resource/sql/music.db");
+#endif
+#ifdef WIN32
 	db.setDatabaseName("./resource/sql/music.db");
 #endif
-#ifdef RELEASE
-	db.setDatabaseName("/home/" + currentUser + "/.cache/NetEase/resource/sql/music.db");
-#endif
-	*/
-
-	/*
-	 *	如果不希望在/home/userName/.cache/下生成文件..
-	 *  编译时:
-	 *  将#dist_file = $$OUT_PWD/$$f 这句去掉注释..
-	 *	dist_file = $$~/.cache/NetEase/$$f 这句加上注释..
-	 *	再修改db.setDatabaseName和main.cpp下的相关数据..
-	 * */
-	db.setDatabaseName("/home/" + currentUser + "/.cache/NetEase/resource/sql/music.db");
 	if (!db.open())
 	{
 		QMessageBox::critical(0, QObject::tr("连接数据出错"), db.lastError().text(), QMessageBox::Ok);
