@@ -10,6 +10,14 @@ windows下mplayer下载: http://www.mplayerhq.hu/design7/dload.html<br>
 <br>
 linux安装mplayer(openSUSE): #zypper in mplayer<br>
 <br><br>
+
+# 2015-11-17更新:
+
+重新构架项目,具体情况请看这里: https://github.com/fengleyl/NetEaseMusic
+
+
+
+
 # 2015-06-07更新:
 1. 重新写了下NetWork云音乐部分.
 2. 添加简单的歌词显示.
