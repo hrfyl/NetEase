@@ -1,7 +1,7 @@
 # NetEaseMusic-Qt for Linux
 
-[![](https://github.com/fengleyl/NetEaseMusic/blob/master/images/NetEase.png)]()
-[![](https://github.com/fengleyl/NetEaseMusic/blob/master/images/NetEase1.png)]()
+[![](https://github.com/fengleyl/NetEase/blob/master/images/NetEase.png)]()
+[![](https://github.com/fengleyl/NetEase/blob/master/images/NetEase1.png)]()
 
 ---
 
