@@ -1,0 +1,162 @@
+/*
+	应用样式设置..
+	作者: WIND
+	邮箱: fengleyll@gmail.com
+*/
+
+/*
+	QMenu 菜单的样式.包括标题栏菜单和系统托盘菜单..
+*/
+QMenu {
+	background-color: #505050;
+	border-width:0px;
+	margin: 2px;
+}
+QMenu::item {
+	background-color: #505050;
+	padding: 2px 25px 2px 20px;
+	border-color:transparent;
+	color:#ffEff0;
+}
+QMenu::item:selected {
+	border-width:1px;
+	border-color:gray;
+	background:"#00A489";
+	color:#E6FFFF;
+}
+QMenu::separator {
+	height: 1px;
+	background: #1D99A9;
+}
+
+/*
+	QWidget#NetNaseTitle 应用标题栏样式..
+*/
+QWidget#NetNaseTitle {
+	background-color:#505050;
+}
+
+/*
+	文字标题..
+*/
+QLabel#TitleLabel {
+	color:#EFEEE0;
+	font-size: 14px;
+}
+
+/*
+	主界面样式..
+	qproperty-backPixmap 为:"default" 时使用背景图片..
+	qproperty-backPixmap 为:颜色值时 背景使用此颜色作为背景..
+*/
+QWidget#BackGround {
+	qproperty-backPixmap:"default";
+	qproperty-opacity:1.0;
+	qproperty-color:"#2abf1d";
+	qproperty-wenliPixmap:":/main_images/image_wenli";
+	qproperty-guanPixmap:":/main_images/guangyun_green";
+}
+
+/*
+	SliderWidget 音量和进度条样式..
+*/
+SliderWidget#VoiceSlider {
+	qproperty-foreGround:"lightgray";
+	qproperty-backGround:"lightgreen";
+}
+SliderWidget#PostionSlider {
+	qproperty-foreGround:"lightgray";
+	qproperty-backGround:"lightgreen";
+}
+
+/*
+	QLabel#PostionLabel / QLabel#VoiceLabel
+	进度和音量当前值和最大值..
+*/
+QLabel#PostionLabel {
+	color:"lightgray";
+	font-size:14px;
+}
+QLabel#VoiceLabel {
+	color:"lightgray";
+	font-size:14px;
+}
+
+/*
+	ButtonLabel#LogInButton 登录按钮的样式..
+*/
+ButtonLabel#LogInButton {
+	color: "blue";	/*点击之前颜色*/
+	font-size:18px;	/*点击之前字体大小*/
+	qproperty-clickedColor:"gray";	/*点击后的颜色*/
+	qproperty-clickedSize:"20px";	/*点击后的字体大小*/
+}
+
+/*
+	QListWidget#MusicsList 歌单列表样式..
+*/
+QListWidget#MusicsList {
+	background-color:transparent;
+}
+QListWidget::item {
+	min-height:25;
+	font-size:16px;
+}
+
+QListWidget {
+	border:0px;
+}
+QListWidget::item:selected {
+	color:white;
+	background:"#00A489";
+}
+
+/*
+	QTableWidget 当前播放的歌单样式..
+*/
+QTableWidget {
+	background-color:transparent;
+	border:0px;
+}
+QTableView::item:selected {
+	color:white;
+	background:"#00A489";
+}
+/*
+	表头..
+*/
+QHeaderView::section {
+	background-color: transparent;
+	color: black;
+	border: 0px;
+}
+
+/*
+	QLabel#MusicTitle 文字歌单列表样式..
+*/
+QLabel#MusicTitle {
+	font-size:24px;
+	color:gray;
+	border-width:1px;
+}
+
+/*
+	LyricWidget 桌面歌词样式..
+*/
+LyricWidget {
+	background:"#00A489";
+}
+
+/*
+	QLabel#CurrentLyric/QLabel#NextCurrentLyric 当前歌词/下一条歌词..
+*/
+QLabel#CurrentLyric {
+	color:#da7e27;
+	font-size:22px;
+}
+QLabel#NextCurrentLyric {
+	color:lightblue;
+	font-size:16px;
+}
+
+

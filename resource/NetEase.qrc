@@ -1,0 +1,56 @@
+<RCC>
+    <qresource prefix="/buttons">
+        <file alias="front_btn">buttons/front_btn.png</file>
+        <file alias="music">buttons/music.png</file>
+        <file alias="next_btn">buttons/next_btn.png</file>
+        <file alias="play_btn">buttons/play_btn.png</file>
+        <file alias="stop_btn">buttons/stop_btn.png</file>
+        <file alias="search_btn">buttons/search_btn.png</file>
+        <file alias="current_play">buttons/current_play.png</file>
+        <file>buttons/current_play.ico</file>
+    </qresource>
+    <qresource prefix="/main_images">
+        <file alias="title_format">main_images/format.ico</file>
+        <file alias="guangyun_green">main_images/guangyun_green.png</file>
+        <file alias="guangyun_orange">main_images/guangyun_orange.png</file>
+        <file alias="guangyun_yellow">main_images/guangyun_yellow.png</file>
+        <file alias="image_login">main_images/login.png</file>
+        <file alias="image_wenli">main_images/wenli.png</file>
+    </qresource>
+    <qresource prefix="/python">
+        <file alias="py_login">py_api/login.py</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file alias="style">qss/default.qss</file>
+        <file>qss/readme</file>
+    </qresource>
+    <qresource prefix="/sql">
+        <file alias="user_info">sql/music.db</file>
+    </qresource>
+    <qresource prefix="/title_images">
+        <file alias="logo">title_images/format.png</file>
+        <file alias="menu_btn">title_images/Menu.png</file>
+        <file alias="skin_btn">title_images/Skin.png</file>
+        <file alias="close_btn">title_images/sys_button_close.png</file>
+        <file alias="mini_btn">title_images/sys_button_min.png</file>
+        <file alias="update_btn">title_images/update_btn.png</file>
+    </qresource>
+    <qresource prefix="/menu_icon">
+        <file alias="list_loop">menu_ico/list_play.ico</file>
+        <file alias="lock_lyric">menu_ico/lock_lyric.ico</file>
+        <file alias="lyric">menu_ico/lyric.ico</file>
+        <file alias="netease">menu_ico/netease.ico</file>
+        <file alias="next_play">menu_ico/next_play.ico</file>
+        <file alias="one_loop">menu_ico/one_play.ico</file>
+        <file alias="play">menu_ico/play.ico</file>
+        <file alias="previous_play">menu_ico/previous.ico</file>
+        <file alias="random_loop">menu_ico/random_play.ico</file>
+        <file alias="search">menu_ico/search.ico</file>
+        <file alias="like">menu_ico/like.ico</file>
+        <file alias="unlike">menu_ico/unlike.ico</file>
+        <file alias="pause">menu_ico/pause.ico</file>
+        <file alias="logout">menu_ico/logout.ico</file>
+        <file alias="exit">menu_ico/exit.ico</file>
+        <file alias="refresh">menu_ico/refresh.ico</file>
+    </qresource>
+</RCC>
